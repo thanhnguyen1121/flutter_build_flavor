@@ -19,7 +19,12 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          child: Text("Env: ${Env.instance.endpoint}"),
+          child: Column(
+            children: [
+              Text("Env: ${Env.instance.endpoint}"),
+              Text("Env: ${Env.instance.currentPlatform.iosBundleId}"),
+            ],
+          ),
         ),
       ),
     );

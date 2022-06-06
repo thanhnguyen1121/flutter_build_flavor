@@ -1,4 +1,8 @@
-import 'package:flutter/foundation.dart';
+import 'package:firebase_core/firebase_core.dart';
+import '../prod_firebase_options.dart' as firebase_prod;
+import '../staging_firebase_options.dart' as firebase_staging;
+
+import '../dev_firebase_options.dart' as firebase_dev;
 
 enum Flavor { production, development, staging }
 
@@ -6,9 +10,11 @@ class Env {
   static final Env instance = Env.of();
 
   final String endpoint;
+  final FirebaseOptions currentPlatform;
 
   const Env._({
     required this.endpoint,
+    required this.currentPlatform,
   });
 
   static const String endpointProd = "https://endpoint.prod.tz.com";
@@ -27,14 +33,21 @@ class Env {
   }
 
   factory Env._production() {
-    return const Env._(endpoint: endpointProd);
+    return Env._(
+        endpoint: endpointProd,
+        currentPlatform: firebase_prod.DefaultFirebaseOptions.currentPlatform);
   }
 
   factory Env._development() {
-    return const Env._(endpoint: endpointDev);
+    return Env._(
+        endpoint: endpointDev,
+        currentPlatform: firebase_dev.DefaultFirebaseOptions.currentPlatform);
   }
 
   factory Env._staging() {
-    return const Env._(endpoint: endpointStaging);
+    return Env._(
+        endpoint: endpointStaging,
+        currentPlatform:
+            firebase_staging.DefaultFirebaseOptions.currentPlatform);
   }
 }
