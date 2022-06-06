@@ -12,16 +12,17 @@ A few resources to get you started if this is your first Flutter project:
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+[online documentation](https://flutter.dev/docs), which offers tutorials, samples, guidance on
+mobile development, and a full API reference.
 
 # NOTE FOR SETUP BUILD FLAVOR:
+
 - [refer to the source] (https://www.youtube.com/watch?v=4Y7WaeU3P60)
 
 - Flutter command:
   Build(Staging, Production, Development)
-  Android
+Android
+```
     flutter build apk --no-shrink --flavor development --dart-define=FLAVOR=development --target lib/main.dart
     flutter build apk --no-shrink --flavor development --dart-define=FLAVOR=staging --target lib/main.dart
     flutter build apk --no-shrink --flavor development --dart-define=FLAVOR=production --target lib/main.dart
@@ -34,7 +35,11 @@ samples, guidance on mobile development, and a full API reference.
     flutter build apk --no-shrink --flavor production --dart-define=FLAVOR=staging --target lib/main.dart
     flutter build apk --no-shrink --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
-  IOS
+```
+
+IOS
+    
+```
     flutter build ios --flavor development --dart-define=FLAVOR=development --target lib/main.dart
     flutter build ios --flavor development --dart-define=FLAVOR=staging --target lib/main.dart
     flutter build ios --flavor development --dart-define=FLAVOR=production --target lib/main.dart
@@ -46,6 +51,7 @@ samples, guidance on mobile development, and a full API reference.
     flutter build ios --flavor production --dart-define=FLAVOR=development --target lib/main.dart
     flutter build ios --flavor production --dart-define=FLAVOR=staging --target lib/main.dart
     flutter build ios --flavor production --dart-define=FLAVOR=production --target lib/main.dart
+```
 
 
 For Android setup:
@@ -88,3 +94,12 @@ For IOS setup:
     info.splits edit  to $(APP_DISPLAY_NAME)
     in runner targets select build settings then click add new user define config
   
+
+#Flutter CLI config command:
+```
+
+flutterfire configure --out "lib/staging_firebase_options.dart" --android-app-id app_id
+--ios-bundle-id bundle_id
+
+```
+
